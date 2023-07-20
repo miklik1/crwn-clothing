@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
@@ -33,7 +33,7 @@ const Navigation = () => {
               SIGN OUT
             </NavLink>
           ) : (
-            <NavLink as='span' to="/auth">
+            <NavLink to="/auth">
               SIGN IN
             </NavLink>
           )}

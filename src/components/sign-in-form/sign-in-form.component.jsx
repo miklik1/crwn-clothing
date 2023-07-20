@@ -7,7 +7,7 @@ import {
 } from "../../utils/firebase/firebase.utils";
 
 import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
 import "./sign-in-form.styles.scss";
 
@@ -30,10 +30,7 @@ const SignInForm = () => {
     if (!email || !password) return;
 
     try {
-      await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
+      await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/wrong-password") {
@@ -56,7 +53,7 @@ const SignInForm = () => {
     <div className="sign-up-container">
       <h2>Already have an account?</h2>
       <span>Sign in with your email and password</span>
-      <form onSubmit={() => { }}>
+      <form onSubmit={() => {}}>
         <FormInput
           label="Email"
           type="email"
@@ -80,7 +77,11 @@ const SignInForm = () => {
             Sign In
           </Button>
 
-          <Button type="button" buttonType="google" onClick={signInWithGoogle}>
+          <Button
+            type="button"
+            buttonType={BUTTON_TYPE_CLASSES.google}
+            onClick={signInWithGoogle}
+          >
             Google Sign In
           </Button>
         </div>
